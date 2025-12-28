@@ -72,12 +72,19 @@ export default function InterviewsPage() {
         const result: InterviewWithStatus[] = [];
 
         for (const interview of desc) {
-          let answers: InterviewAnswer[] = [];
-          try {
-            answers = await getInterviewAnswers(interview.id, userId);
-          } catch {
-            answers = [];
-          }
+let answers: InterviewAnswer[] = [];
+try {
+  if (userId == null) {
+    // на всякий случай защищаемся от undefined/null
+    answers = [];
+  } else {
+    // здесь явно говорим TS, что userId — это точно number
+    answers = await getInterviewAnswers(interview.id, userId as number);
+  }
+} catch {
+  answers = [];
+}
+
 
           const answersCount = Array.isArray(answers) ? answers.length : 0;
 
@@ -439,10 +446,6 @@ function InterviewModal({ interview, userId, onClose }: InterviewModalProps) {
       open
       onClose={onClose}
       title={interview.name}
-      subtitle={
-        interview.description ||
-        'Ответы на вопросы помогут системе точнее подбирать рекомендации.'
-      }
       size="lg"
       footer={
         <>
@@ -463,7 +466,18 @@ function InterviewModal({ interview, userId, onClose }: InterviewModalProps) {
         </>
       }
     >
+      
       {error && <Alert type="error">{error}</Alert>}
+            <div
+        style={{
+          fontSize: 13,
+          color: '#4b5563',
+          marginBottom: 12,
+        }}
+      >
+        {interview.description ||
+          'Ответы на вопросы помогут системе точнее подбирать рекомендации.'}
+      </div>
       {saveError && <Alert type="error">{saveError}</Alert>}
       {saveOk && <Alert type="info">Ответы сохранены</Alert>}
 
