@@ -138,7 +138,6 @@ export default function PatientHomePage() {
           </div>
         }
       >
-       
         <h2 className={styles.title}>Это ваш личный кабинет</h2>
         <p className={styles.lead}>
           Здесь собираются ваши анкеты, показатели, рекомендации и карта болей.
@@ -194,9 +193,12 @@ export default function PatientHomePage() {
               </p>
 
               <div className={styles.cardFooter}>
-                <Button asChild size="sm" className={styles.cardButton}>
-                  <Link href="/app/app/interviews">Перейти к анкетам</Link>
-                </Button>
+                <Link
+                  href="/app/app/interviews"
+                  className={styles.cardButton}
+                >
+                  Перейти к анкетам
+                </Link>
               </div>
             </>
           )}
@@ -226,9 +228,12 @@ export default function PatientHomePage() {
               </p>
 
               <div className={styles.cardFooter}>
-                <Button asChild size="sm" className={styles.cardButton}>
-                  <Link href="/app/app/indicators">Открыть показатели</Link>
-                </Button>
+                <Link
+                  href="/app/app/indicators"
+                  className={styles.cardButton}
+                >
+                  Открыть показатели
+                </Link>
               </div>
             </>
           )}
@@ -259,11 +264,12 @@ export default function PatientHomePage() {
               )}
 
               <div className={styles.cardFooter}>
-                <Button asChild size="sm" className={styles.cardButton}>
-                  <Link href="/app/app/recommendations">
-                    Посмотреть рекомендации
-                  </Link>
-                </Button>
+                <Link
+                  href="/app/app/recommendations"
+                  className={styles.cardButton}
+                >
+                  Посмотреть рекомендации
+                </Link>
               </div>
             </>
           )}
@@ -292,9 +298,9 @@ export default function PatientHomePage() {
               </p>
 
               <div className={styles.cardFooter}>
-                <Button asChild size="sm" className={styles.cardButton}>
-                  <Link href="/app/app/pain-map">Открыть карту болей</Link>
-                </Button>
+                <Link href="/app/app/pain-map" className={styles.cardButton}>
+                  Открыть карту болей
+                </Link>
               </div>
             </>
           )}
