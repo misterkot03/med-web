@@ -28,22 +28,22 @@ type BodyMapProps = {
 const FILES = {
   male: {
     front: {
-      full:  '/pain-map/Male_full_front.svg',
-      head:  '/pain-map/Male_head_front.svg',
+      full: '/pain-map/Male_full_front.svg',
+      head: '/pain-map/Male_head_front.svg',
     },
     back: {
-      full:  '/pain-map/Male_full_back.svg',
-      head:  '/pain-map/Male_head_back.svg',
+      full: '/pain-map/Male_full_back.svg',
+      head: '/pain-map/Male_head_back.svg',
     },
   },
   female: {
     front: {
-      full:  '/pain-map/Female_full_front.svg',
-      head:  '/pain-map/Female_head_front.svg',
+      full: '/pain-map/Female_full_front.svg',
+      head: '/pain-map/Female_head_front.svg',
     },
     back: {
-      full:  '/pain-map/Female_full_back.svg',
-      head:  '/pain-map/Female_head_back.svg',
+      full: '/pain-map/Female_full_back.svg',
+      head: '/pain-map/Female_head_back.svg',
     },
   },
 } as const;
@@ -65,7 +65,7 @@ function zoneNameFromId(id: string): string {
 
 /** Заменяет/создаёт <title> у path, чтобы нативный тултип работал */
 function setPathTitle(el: SVGElement, text: string) {
-  el.querySelectorAll('title').forEach(t => t.remove());
+  el.querySelectorAll('title').forEach((t) => t.remove());
   const t = document.createElementNS('http://www.w3.org/2000/svg', 'title');
   t.textContent = text;
   el.prepend(t);
@@ -77,7 +77,6 @@ export default function BodyMap({
   initialGender = 'male',
   initialSide = 'front',
 }: BodyMapProps) {
-
   /** UI-состояние */
   const [gender, setGender] = useState<GenderCode>(initialGender);
   const [side, setSide] = useState<Side>(initialSide);
@@ -95,13 +94,13 @@ export default function BodyMap({
     setSvgText(null);
 
     fetch(src)
-      .then(r => r.text())
-      .then(txt => !cancelled && setSvgText(txt))
-      .catch(err => {
+      .then((r) => r.text())
+      .then((txt) => !cancelled && setSvgText(txt))
+      .catch((err) => {
         console.error('BodyMap: failed to load', src, err);
         !cancelled &&
           setSvgText(
-            `<div class="${styles.error}">Не удалось загрузить SVG</div>`
+            `<div class="${styles.error}">Не удалось загрузить SVG</div>`,
           );
       });
 
@@ -125,10 +124,14 @@ export default function BodyMap({
     });
 
     const handleClick = (e: MouseEvent) => {
-      const target = e.target as HTMLElement | null;
-      if (!target || target.tagName.toLowerCase() !== 'path') return;
+      const target = e.target;
 
-      const path = target as SVGPathElement;
+      // гарантируем TS, что это именно SVGPathElement
+      if (!(target instanceof SVGPathElement)) {
+        return;
+      }
+
+      const path: SVGPathElement = target;
       const id = path.id;
       if (!id) return;
 
@@ -170,7 +173,7 @@ export default function BodyMap({
 
   return (
     <div className={styles.wrap}>
-      {/* Панель управления — оставил твоий стиль сегментов */}
+      {/* Панель управления — оставил твой стиль сегментов */}
       <div className={styles.toolbar}>
         <div className={styles.segment}>
           <button
