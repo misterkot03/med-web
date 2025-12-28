@@ -51,7 +51,11 @@ export default function PolygonMap({
       })
       .catch((err) => {
         console.error("Failed to load SVG", err);
-        setSvgText(`<div class="${s.error}">Не удалось загрузить SVG: ${String(err)}</div>`);
+        setSvgText(
+          `<div class="${s.error}">Не удалось загрузить SVG: ${String(
+            err,
+          )}</div>`,
+        );
       });
     return () => {
       isMounted = false;
@@ -71,32 +75,39 @@ export default function PolygonMap({
     });
 
     const handleClick = (e: MouseEvent) => {
-      const target = e.target as HTMLElement;
-      if (!target || target.tagName.toLowerCase() !== "path") return;
-      const id = (target as SVGPathElement).id;
+      const target = e.target;
+      if (!(target instanceof SVGPathElement)) return;
+
+      const path = target as SVGPathElement;
+      const id = path.id;
       if (!id) return;
 
       const set = selectedSetRef.current;
       const willSelect = !set.has(id);
+
       if (willSelect) {
         set.add(id);
-        target.classList.add(s.selected);
-        target.classList.remove(s.bump);
+        path.classList.add(s.selected);
+        path.classList.remove(s.bump);
         // reflow
-        void (target as any).offsetWidth;
-        target.classList.add(s.bump);
+        void (path as any).offsetWidth;
+        path.classList.add(s.bump);
       } else {
         set.delete(id);
-        target.classList.remove(s.selected);
+        path.classList.remove(s.selected);
       }
+
       onSelect?.(id, willSelect, Array.from(set));
     };
 
     const handleDbl = (e: MouseEvent) => {
-      const target = e.target as HTMLElement;
-      if (!target || target.tagName.toLowerCase() !== "path") return;
-      const id = (target as SVGPathElement).id;
+      const target = e.target;
+      if (!(target instanceof SVGPathElement)) return;
+
+      const path = target as SVGPathElement;
+      const id = path.id;
       if (!id) return;
+
       onDoubleClick?.(id);
     };
 
