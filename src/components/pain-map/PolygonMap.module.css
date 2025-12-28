@@ -1,0 +1,54 @@
+.wrap {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+}
+
+.svgRoot svg {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* интерактивные области */
+.area {
+  fill: rgba(0, 178, 255, 0.18);
+  stroke: #000;
+  stroke-width: 1px;
+  transition: fill-opacity 0.2s ease, transform 0.2s ease, stroke-width 0.2s ease;
+  vector-effect: non-scaling-stroke;
+}
+
+.area:hover {
+  fill: rgba(0, 178, 255, 0.35);
+  stroke-width: 1.5px;
+}
+
+.selected {
+  fill: rgba(0, 178, 255, 0.55);
+  stroke-width: 1.6px;
+}
+
+/* лёгкий «bump»-эффект по клику */
+@keyframes bump {
+  0%   { transform: scale(1); }
+  50%  { transform: scale(1.015); }
+  100% { transform: scale(1); }
+}
+.bump {
+  animation: bump 200ms ease;
+}
+
+.loading {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  color: #777;
+  font-size: 14px;
+}
+
+.error {
+  color: #c00;
+  font-size: 14px;
+}

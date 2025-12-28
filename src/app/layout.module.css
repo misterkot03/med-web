@@ -1,0 +1,23 @@
+.header {
+  position: sticky; top: 0; z-index: 2;
+  background: rgba(255,255,255,.85);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--outline);
+}
+
+.nav {
+  display: flex; align-items: center; justify-content: space-between;
+  gap: 18px; padding: 14px 0;
+}
+
+.brand {
+  display: flex; align-items: baseline; gap: 8px;
+  font-weight: 800; letter-spacing: .2px; color: var(--text); text-decoration: none;
+}
+
+.brand small {
+  color: var(--muted);
+  font-weight: 600; font-size: 12px; letter-spacing: .4px; text-transform: uppercase;
+}
+
+.links { display: flex; gap: 14px; }

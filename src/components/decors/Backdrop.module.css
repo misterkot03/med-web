@@ -1,0 +1,25 @@
+.root {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  overflow: hidden;
+}
+
+.layer {
+  position: absolute;
+  inset: -10%;
+  background:
+    radial-gradient(40% 60% at 10% 10%, rgba(46,111,242,.20), transparent 60%),
+    radial-gradient(35% 55% at 90% 20%, rgba(44,214,194,.20), transparent 60%),
+    radial-gradient(45% 60% at 50% 90%, rgba(108,99,255,.16), transparent 60%);
+  filter: blur(40px) saturate(130%);
+  opacity: .6;
+  animation: float 18s ease-in-out infinite alternate;
+}
+
+@keyframes float {
+  0%   { transform: translate3d(-2%, -1%, 0) scale(1);   opacity: .55; }
+  50%  { transform: translate3d(1%,  2%,  0) scale(1.02); opacity: .70; }
+  100% { transform: translate3d(-1%, 1%,  0) scale(1.01); opacity: .60; }
+}

@@ -1,0 +1,4 @@
+.grid { display: grid; gap: 12px; grid-template-columns: 1fr 1fr; }
+.row { display: grid; gap: 10px; }
+.actions { display: flex; gap: 12px; justify-content: flex-end; }
+@media (max-width: 820px) { .grid { grid-template-columns: 1fr; } }

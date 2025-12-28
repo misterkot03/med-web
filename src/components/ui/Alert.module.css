@@ -1,0 +1,15 @@
+.root {
+  border-radius: 12px;
+  padding: 12px 14px;
+  border: 1px solid;
+}
+.error {
+  background: #fff3f3;
+  color: #9b1c1c;
+  border-color: #ffd1d1;
+}
+.info {
+  background: #f0f6ff;
+  color: #113d8b;
+  border-color: #cfe0ff;
+}

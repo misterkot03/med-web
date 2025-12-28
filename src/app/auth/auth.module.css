@@ -1,0 +1,8 @@
+.wrap { max-width: 520px; margin: 50px auto; }
+
+.actions { display: flex; justify-content: space-between; align-items: center; }
+
+.form { display: grid; gap: 14px; }
+
+.hr { height: 1px; background: var(--outline); margin: 6px 0 2px; }
+.sub { color: var(--muted); margin: 0; }

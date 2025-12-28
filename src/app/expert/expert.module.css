@@ -1,0 +1,349 @@
+.headerRight {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.userBadge {
+  padding: 4px 10px;
+  border-radius: 999px;
+  background: #f3f4ff;
+  font-size: 13px;
+  color: #353a5a;
+}
+
+.subTitle {
+  margin: 0 0 18px;
+  font-size: 14px;
+  line-height: 1.5;
+  color: #6a7a90;
+}
+
+/* ---------- Tabs ---------- */
+
+.tabs {
+  display: inline-flex;
+  padding: 4px;
+  border-radius: 999px;
+  background: #f3f4f9;
+  gap: 4px;
+}
+
+.tabBtn {
+  border: none;
+  background: transparent;
+  border-radius: 999px;
+  padding: 6px 14px;
+  font-size: 13px;
+  cursor: pointer;
+  color: #5d6a86;
+}
+
+.tabBtnActive {
+  background: #ffffff;
+  box-shadow: 0 1px 4px rgba(15, 23, 42, 0.14);
+  color: #1f3b82;
+}
+
+/* ---------- Layout ---------- */
+
+.gridTwo {
+  display: grid;
+  gap: 24px;
+}
+
+@media (min-width: 900px) {
+  .gridTwo {
+    grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
+    align-items: flex-start;
+  }
+}
+
+.stack {
+  display: grid;
+  gap: 16px;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.formTitle {
+  margin: 0 0 6px;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.formActions {
+  margin-top: 8px;
+  display: flex;
+  gap: 8px;
+}
+
+/* ---------- Textarea ---------- */
+
+.textareaLabel {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.textareaTitle {
+  font-size: 13px;
+  font-weight: 500;
+  color: #374151;
+}
+
+.textarea {
+  resize: vertical;
+  min-height: 90px;
+  padding: 8px 10px;
+  border-radius: 10px;
+  border: 1px solid #d1d5db;
+  font-size: 14px;
+  font-family: inherit;
+  outline: none;
+  background: #ffffff;
+}
+
+.textarea:focus {
+  border-color: #4364ff;
+  box-shadow: 0 0 0 1px rgba(67, 100, 255, 0.12);
+}
+
+/* ---------- Table ---------- */
+
+.tableWrap {
+  overflow: auto;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+}
+
+.table th,
+.table td {
+  padding: 6px 8px;
+  border-bottom: 1px solid #e5e7eb;
+  text-align: left;
+  vertical-align: top;
+}
+
+.table th {
+  font-weight: 600;
+  background: #f9fafb;
+}
+
+/* ---------- Groups ---------- */
+
+.groupsList {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.groupCard {
+  border-radius: 16px;
+  background: #f7f9fc;
+  padding: 12px 14px;
+}
+
+.groupHeader {
+  margin-bottom: 8px;
+}
+
+.groupTitleRow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  align-items: center;
+}
+
+.groupBadge {
+  padding: 3px 9px;
+  border-radius: 999px;
+  font-size: 12px;
+  background: #e5edff;
+  color: #1d3a8a;
+  font-weight: 500;
+}
+
+.groupDesc {
+  font-size: 13px;
+  color: #4b5563;
+}
+
+.groupBlock {
+  margin-top: 8px;
+  padding-top: 8px;
+  border-top: 1px dashed #d1d5db;
+}
+
+.groupRecTitle {
+  font-size: 13px;
+  font-weight: 600;
+  margin-bottom: 6px;
+}
+
+.conditionsList {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.conditionItem {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  font-size: 13px;
+}
+
+.conditionParam {
+  font-weight: 500;
+  color: #111827;
+}
+
+.conditionExpr {
+  color: #4b5563;
+}
+
+/* ---------- Text ---------- */
+
+.muted {
+  font-size: 13px;
+  color: #6b7280;
+}
+
+.mutedSmall {
+  font-size: 12px;
+  color: #6b7280;
+}
+
+/* ---------- Subsections / divider for справочники ---------- */
+
+.subSectionTitle {
+  margin: 12px 0 6px;
+  font-size: 13px;
+  font-weight: 600;
+  color: #111827;
+}
+
+.divider {
+  margin: 12px 0;
+  height: 1px;
+  background: #e5e7eb;
+}
+.tableActionsCol {
+  width: 1%;
+  white-space: nowrap;
+}
+
+.tableActions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.tableActionBtn {
+  border: none;
+  background: transparent;
+  padding: 2px 8px;
+  border-radius: 999px;
+  font-size: 12px;
+  cursor: pointer;
+  color: #1f3b82;
+  transition: background 0.15s ease, color 0.15s ease;
+}
+
+.tableActionBtn:hover {
+  background: rgba(67, 100, 255, 0.08);
+}
+
+.tableActionDanger {
+  color: #b91c1c;
+}
+
+/* Тестовый блок */
+
+.testLayout {
+  display: grid;
+  gap: 24px;
+}
+
+@media (min-width: 900px) {
+  .testLayout {
+    grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
+    align-items: flex-start;
+  }
+}
+
+.testParamList {
+  margin-top: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.testParamItem {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 10px;
+  border-radius: 12px;
+  background: #f3f4f9;
+  font-size: 13px;
+}
+
+.testParamName {
+  font-weight: 600;
+  margin-bottom: 2px;
+}
+
+.testParamValues {
+  font-size: 12px;
+  color: #6b7280;
+}
+
+.testParamRemove {
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  font-size: 12px;
+  color: #b91c1c;
+}
+
+.testResultList {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.testResultItem {
+  padding: 10px 12px;
+  border-radius: 12px;
+  background: #f7f9fc;
+}
+
+.testResultTitle {
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+
+.testResultDesc {
+  font-size: 13px;
+  color: #4b5563;
+}
+
+.testResultMeta {
+  margin-top: 4px;
+  font-size: 12px;
+  color: #6b7280;
+}

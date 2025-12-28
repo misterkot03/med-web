@@ -1,0 +1,16 @@
+.dots {
+  display: inline-flex;
+  gap: 6px;
+  align-items: center;
+}
+.dot {
+  width: 8px; height: 8px; border-radius: 50%;
+  background: #bcd1ff;
+  animation: pulse .9s infinite ease-in-out;
+}
+.dot:nth-child(2) { animation-delay: .15s; }
+.dot:nth-child(3) { animation-delay: .30s; }
+@keyframes pulse {
+  0%, 80%, 100% { opacity: .2; transform: scale(.9); }
+  40% { opacity: 1; transform: scale(1); }
+}

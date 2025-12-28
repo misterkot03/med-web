@@ -1,0 +1,31 @@
+.grid {
+  display: grid;
+  grid-template-columns: 240px 1fr;
+  gap: 20px;
+}
+
+.aside {
+  background: rgba(255,255,255,.86);
+  border: 1px solid var(--outline);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-1);
+  padding: 16px;
+  height: fit-content;
+}
+
+.sectionTitle {
+  font-weight: 800;
+  letter-spacing: .2px;
+  margin-bottom: 10px;
+}
+
+.nav { display: grid; gap: 8px; }
+.nav a {
+  display: block;
+  padding: 10px 12px;
+  border-radius: 10px;
+  color: var(--text);
+  text-decoration: none;
+}
+.nav a:hover { background: var(--surface-2); }
+.content { display: grid; gap: 16px; }

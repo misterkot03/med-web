@@ -1,0 +1,201 @@
+.page {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+/* ---------- Верхний блок ---------- */
+
+.header {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.title {
+  font-size: 26px;
+  line-height: 1.25;
+  font-weight: 700;
+  margin: 0;
+}
+
+/* ---------- Общие карточки ---------- */
+
+.card {
+  border-radius: 24px;
+}
+
+.grid {
+  display: grid;
+  gap: 24px;
+}
+
+@media (min-width: 900px) {
+  .grid {
+    grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
+    align-items: flex-start;
+  }
+}
+
+/* ---------- Состояние данных ---------- */
+
+.sources {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.sourceRow {
+  padding: 12px 14px;
+  border-radius: 18px;
+  background: #f7f9fc;
+}
+
+.sourceText {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.sourceHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.sourceTitle {
+  font-weight: 600;
+  font-size: 15px;
+}
+
+.sourceDesc {
+  margin: 0;
+  font-size: 13px;
+  line-height: 1.5;
+  color: #6a7a90;
+}
+
+/* ---------- Статусы ---------- */
+
+.statusPill {
+  white-space: nowrap;
+  padding: 4px 10px;
+  border-radius: 999px;
+  font-size: 11px;
+  font-weight: 500;
+}
+
+.statusOk {
+  background: #e2f6ea;
+  color: #0b7a3c;
+}
+
+.statusPartial {
+  background: #e4f1ff;
+  color: #1e64c8;
+}
+
+.statusEmpty {
+  background: #ffe6e6;
+  color: #b3261e;
+}
+
+/* ---------- Рекомендации (если будут) ---------- */
+
+.recList {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.recItem {
+  padding: 10px 12px;
+  border-radius: 14px;
+  background: #f7f9fc;
+}
+
+.recTitle {
+  margin: 0 0 4px;
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.recText {
+  margin: 0;
+  font-size: 13px;
+  line-height: 1.5;
+  color: #6a7a90;
+}
+
+/* ---------- Шаги ---------- */
+
+.steps {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.stepItem {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  gap: 10px 14px;
+  align-items: flex-start;
+}
+
+.stepNumber {
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #4a7dff, #3162ff);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 13px;
+  font-weight: 600;
+  margin-top: 4px;
+}
+
+.stepContent {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.stepTitle {
+  margin: 0;
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.stepDesc {
+  margin: 0;
+  font-size: 13px;
+  line-height: 1.5;
+  color: #6a7a90;
+}
+
+.stepButton {
+  margin-top: 4px;
+  width: 100%;
+}
+
+@media (min-width: 700px) {
+  .stepButton {
+    width: auto;
+  }
+}
+
+/* ---------- Прочее ---------- */
+
+.loadingHint {
+  font-size: 13px;
+  color: #6a7a90;
+}
