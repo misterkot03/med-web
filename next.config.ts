@@ -1,11 +1,11 @@
-import type { NextConfig } from 'next';
+// next.config.ts
+import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
   // другие твои настройки...
-
-  eslint: {
-    ignoreDuringBuilds: true,
-  },
+  // output: "standalone",
+  // images: { ... },
+  // experimental: { ... },
 };
 
 export default nextConfig;
