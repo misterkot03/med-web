@@ -338,20 +338,21 @@ export default function PainMapPage() {
               }
               options={mkOptions(dicts?.pain_type)}
             />
-            <Select
-              label="Время суток"
-              value={form.time_of_day_id ?? ""}
-              onChange={(v) =>
-                setForm((s) => ({
-                  ...s,
-                  time_of_day_id: v ? Number(v) : undefined,
-                }))
-              }
-              options={mkOptions(
-                dicts?.time_of_day,
-                (i) => i.period ?? i.name
-              )}
-            />
+<Select
+  label="Время суток"
+  value={form.time_of_day_id ?? ""}
+  onChange={(v) =>
+    setForm((s) => ({
+      ...s,
+      time_of_day_id: v ? Number(v) : undefined,
+    }))
+  }
+  options={mkOptions(
+    dicts?.time_of_day,
+    (i) => i.period || i.name || String(i.id)
+  )}
+/>
+
           </div>
 
           <div className={styles.row}>
