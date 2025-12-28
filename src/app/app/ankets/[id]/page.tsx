@@ -173,7 +173,8 @@ export default function InterviewPage({ params }: PageProps) {
       <Card title="Вопросы анкеты">
         {error && <Alert type="error">{error}</Alert>}
         {saveError && <Alert type="error">{saveError}</Alert>}
-        {saveOk && <Alert type="success">Ответы сохранены</Alert>}
+        {saveOk && <Alert type="info">Ответы сохранены</Alert>}
+
 
         {loading && !error && <Spinner label="Загрузка вопросов…" />}
 
