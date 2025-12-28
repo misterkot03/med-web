@@ -129,16 +129,24 @@ export default function PainMapPage() {
       description?: string;
       period?: string;
     }[],
-    text?: (i: any) => string
-  ) =>
-    [{ value: "", label: "— не указано —" } as const].concat(
-      (arr ?? []).map((i) => ({
+    text?: (i: {
+      id: number;
+      name?: string;
+      level?: number;
+      description?: string;
+      period?: string;
+    }) => string
+  ): { value: string; label: string }[] =>
+    [
+      { value: "", label: "— не указано —" },
+      ...(arr ?? []).map((i) => ({
         value: String(i.id),
         label: text
           ? text(i)
           : i.name ?? i.description ?? i.period ?? String(i.id),
-      }))
-    );
+      })),
+    ];
+
 
   /* =======================
    * Вспомогалки для истории
