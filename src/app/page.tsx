@@ -7,15 +7,11 @@ import { Card } from "@/components/ui/Card";
 import styles from "./page.module.css";
 
 export default function LandingPage() {
-  const { session, loading } = useAuth();
+  const { session } = useAuth();
   const isAuthed = !!session;
   const cabinetHref = "/app/app"; // при необходимости подправь путь
 
-  const primaryCta = loading ? (
-    <button className={styles.primaryBtn} disabled>
-      Проверяем вход…
-    </button>
-  ) : isAuthed ? (
+  const primaryCta = isAuthed ? (
     <Link href={cabinetHref} className={styles.primaryBtn}>
       Перейти в кабинет
     </Link>
@@ -68,7 +64,9 @@ export default function LandingPage() {
           <div className={styles.heroAside}>
             <Card title="Как это работает">
               <ol className={styles.stepsList}>
-                <li>Пациент заполняет анкеты, показатели и отмечает зоны боли.</li>
+                <li>
+                  Пациент заполняет анкеты, показатели и отмечает зоны боли.
+                </li>
                 <li>Система считает производные параметры и проверяет условия.</li>
                 <li>
                   Эксперт настраивает рекомендации, которые видит пациент в
@@ -80,34 +78,37 @@ export default function LandingPage() {
         </section>
 
         {/* Блоки «для кого» и безопасность */}
-        <section id="roles" className={styles.sectionGrid}>
-          <Card title="Для пациента">
-            <ul className={styles.bullets}>
-              <li>Личный кабинет с анкетами, показателями и картой болей.</li>
-              <li>История отметок и показателей в одном интерфейсе.</li>
-              <li>
-                Персональные рекомендации, сформированные автоматически на
-                основе данных.
-              </li>
-            </ul>
-          </Card>
+<section id="roles" className={styles.sectionGrid}>
+  <Card title="Для пациента">
+    <ul className={styles.bullets}>
+      <li>Личный кабинет с анкетами, показателями и картой болей.</li>
+      <li>История отметок и показателей в одном интерфейсе.</li>
+      <li>
+        Персональные рекомендации, сформированные автоматически на
+        основе данных.
+      </li>
+    </ul>
+  </Card>
 
-          <Card title="Для эксперта">
-            <ul className={styles.bullets}>
-              <li>Админка для настройки условий и групп рекомендаций.</li>
-              <li>Гибкая логика пороговых значений показателей.</li>
-              <li>Доступ к структурированным данным пациентов.</li>
-            </ul>
-          </Card>
+  <Card title="Для эксперта">
+    <ul className={styles.bullets}>
+      <li>Админка для настройки условий и групп рекомендаций.</li>
+      <li>Гибкая логика пороговых значений показателей.</li>
+      <li>Доступ к структурированным данным пациентов.</li>
+    </ul>
+  </Card>
 
-          <Card id="security" title="Безопасность данных">
-            <ul className={styles.bullets}>
-              <li>Разделение ролей пациента и эксперта.</li>
-              <li>Авторизация по личным аккаунтам.</li>
-              <li>Обмен данными через backend-API проекта.</li>
-            </ul>
-          </Card>
-        </section>
+  <Card title="Безопасность данных">
+    <div id="security">
+      <ul className={styles.bullets}>
+        <li>Разделение ролей пациента и эксперта.</li>
+        <li>Авторизация по личным аккаунтам.</li>
+        <li>Обмен данными через backend-API проекта.</li>
+      </ul>
+    </div>
+  </Card>
+</section>
+
       </main>
     </div>
   );
