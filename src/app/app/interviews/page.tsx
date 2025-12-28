@@ -446,7 +446,7 @@ function InterviewModal({ interview, userId, onClose }: InterviewModalProps) {
       open
       onClose={onClose}
       title={interview.name}
-      size="lg"
+      
       footer={
         <>
           <Button variant="secondary" onClick={onClose}>
@@ -468,16 +468,7 @@ function InterviewModal({ interview, userId, onClose }: InterviewModalProps) {
     >
       
       {error && <Alert type="error">{error}</Alert>}
-            <div
-        style={{
-          fontSize: 13,
-          color: '#4b5563',
-          marginBottom: 12,
-        }}
-      >
-        {interview.description ||
-          'Ответы на вопросы помогут системе точнее подбирать рекомендации.'}
-      </div>
+      
       {saveError && <Alert type="error">{saveError}</Alert>}
       {saveOk && <Alert type="info">Ответы сохранены</Alert>}
 
