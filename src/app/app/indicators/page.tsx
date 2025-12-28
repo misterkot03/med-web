@@ -158,8 +158,10 @@ export default function IndicatorsPage() {
   const [importError, setImportError] = useState<string | null>(null);
 
   // Загрузка словаря параметров + последних показателей
+  // Загрузка словаря параметров + последних показателей
   useEffect(() => {
-    if (!userId) return;
+    // Явно проверяем на null, чтобы TS сузил тип до number
+    if (userId == null) return;
 
     let cancelled = false;
 
@@ -170,7 +172,8 @@ export default function IndicatorsPage() {
 
         const [pDesc, userRecs] = await Promise.all([
           getParametersDescription(),
-          getUserParameters(userId),
+          // userId к этому моменту точно не null
+          getUserParameters(userId as number),
         ]);
 
         if (cancelled) return;
@@ -192,6 +195,7 @@ export default function IndicatorsPage() {
       cancelled = true;
     };
   }, [userId]);
+
 
   // Обогащённые параметры: последняя запись, количество, можно ли редактировать и т.д.
   const enhancedParams = useMemo<EnhancedParameter[]>(() => {
